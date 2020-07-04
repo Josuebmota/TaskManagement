@@ -59,6 +59,12 @@ class TaskController {
   async update(req, res) {
     const task = await Task.findByPk(req.params.task_id);
 
+    if (!task) {
+      return res.status(404).json({
+        message: 'Tarefa não encontrada',
+      });
+    }
+
     const { deadline } = req.body;
 
     const hourStart = startOfHour(parseISO(deadline));
@@ -83,11 +89,16 @@ class TaskController {
     }
 
     await task.update(req.body);
-    return res.status(200).json({ message: 'Usuario atualizado' });
+    return res.status(200).json({ message: 'Tarefa atualizada' });
   }
 
   async delete(req, res) {
     const task = await Task.findByPk(req.params.task_id);
+    if (!task) {
+      return res.status(404).json({
+        message: 'Tarefa não encontrada',
+      });
+    }
     await task.destroy();
 
     res.status(200).json({ message: 'Tarefa deletada' });
