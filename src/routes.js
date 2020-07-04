@@ -4,6 +4,8 @@ import multerConfig from './config/multer';
 
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
+import ForgotPasswordController from './app/controllers/ForgotPasswordController';
+import ResetPasswordController from './app/controllers/ResetPasswordController';
 import ProfileController from './app/controllers/ProfileController';
 import TaskController from './app/controllers/TaskController';
 
@@ -14,6 +16,8 @@ const upload = multer(multerConfig);
 
 routes.post('/users', upload.single('image'), UserController.store);
 routes.post('/sessions', SessionController.login);
+routes.post('/forgot', ForgotPasswordController.forgot);
+routes.post('/reset', ResetPasswordController.reset);
 
 routes.use(authMiddlewares);
 
