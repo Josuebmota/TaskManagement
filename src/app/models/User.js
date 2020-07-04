@@ -1,17 +1,18 @@
 import Sequelize, { Model } from 'sequelize';
 import bcrypt from 'bcrypt';
 
-class User extends Model{
-  static init(connection){
+class User extends Model {
+  static init(connection) {
     super.init(
       {
         name: Sequelize.STRING,
         email: Sequelize.STRING,
-        hashpassword:Sequelize.STRING,
-        password: Sequelize.VIRTUAL
-      }, 
+        hashpassword: Sequelize.STRING,
+        image: Sequelize.STRING,
+        password: Sequelize.VIRTUAL,
+      },
       {
-        sequelize:connection,
+        sequelize: connection,
       }
     );
     this.addHook('beforeSave', async (user) => {
