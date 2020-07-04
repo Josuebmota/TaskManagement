@@ -2,7 +2,7 @@ import Sequelize, { Model } from 'sequelize';
 import bcrypt from 'bcrypt';
 
 class User extends Model {
-  static init(connection) {
+  static init(sequelize) {
     super.init(
       {
         name: Sequelize.STRING,
@@ -12,7 +12,7 @@ class User extends Model {
         password: Sequelize.VIRTUAL,
       },
       {
-        sequelize: connection,
+        sequelize,
       }
     );
     this.addHook('beforeSave', async (user) => {

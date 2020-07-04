@@ -12,7 +12,7 @@ module.exports = {
         references: { model: 'users', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        allowNull: true,
+        allowNull: false,
       },
       name: {
         type: Sequelize.STRING,
@@ -28,6 +28,9 @@ module.exports = {
       },
       description: {
         type: Sequelize.STRING,
+      },
+      status: {
+        type: Sequelize.BOOLEAN,
       },
       created_at: {
         type: Sequelize.DATE,

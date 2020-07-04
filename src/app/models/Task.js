@@ -5,9 +5,11 @@ class Task extends Model {
     super.init(
       {
         name: Sequelize.STRING,
+        user_id: Sequelize.INTEGER,
         priority: Sequelize.INTEGER,
-        deadline: Sequelize.STRING,
+        deadline: Sequelize.DATE,
         description: Sequelize.STRING,
+        status: Sequelize.BOOLEAN,
       },
       {
         sequelize,
