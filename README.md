@@ -42,7 +42,7 @@ ApiRest para o gerenciamento de tarefas. Onde o relacionamento de entidades pode
 </p>
 
 ## 🚀 Execução
-Antes de executar é necessario mudar as variáveis de ambiente, localizadas no arquivo [.env](https://github.com/Josuebmota/ApiCadastroUser/blob/master/.env) e [database](https://github.com/Josuebmota/TaskManagement/blob/master/src/database/index.js).
+Antes de executar é necessario mudar as variáveis de ambiente, localizadas no arquivo [.env](https://github.com/Josuebmota/ApiCadastroUser/blob/master/.env).
 ```
 # Clone o repositório
 git clone https://github.com/Josuebmota/TaskManagement.git
@@ -52,6 +52,9 @@ cd TaskManagement
 
 # Faça o download das dependências
 yarn or npm i
+
+#Crie o banco
+CREATE DATABASE gerenciador
 
 # Rode as migrations
 yarn sequelize db:migrate

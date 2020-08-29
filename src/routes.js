@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, response } from 'express';
 import multer from 'multer';
 import multerConfig from './config/multer';
 
@@ -13,6 +13,10 @@ import authMiddlewares from './app/middlewares/auth';
 
 const routes = Router();
 const upload = multer(multerConfig);
+
+routes.get('/users', (response) => {
+  return response.status(200).json('Seja Bem Vindo ao TaskManagement Api');
+});
 
 routes.post('/users', upload.single('image'), UserController.store);
 routes.post('/sessions', SessionController.login);
